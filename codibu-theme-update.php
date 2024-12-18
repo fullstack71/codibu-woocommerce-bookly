@@ -23,7 +23,7 @@ function codibu_update_bookly_order_item_meta(){
             }
         }
     }
-    if ($_GET['post'] != null && $_GET['action'] == "edit") {
+    if (isset($_GET['post']) && $_GET['post'] != null && isset($_GET['action']) && $_GET['action'] == "edit") {
         global $wpdb;
         $order_items = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."woocommerce_order_items WHERE order_id = ".$_GET['post'] );
         codibu_process($order_items);
